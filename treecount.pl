@@ -8,10 +8,6 @@
 max(A,B,A) :- A > B.
 max(A,B,B) :- A =< B.
 
-min(A,B,A) :- A < B.
-min(A,B,B) :- A >= B.
-
-
 :- set_prolog_flag(chr_toplevel_show_store,false).
 
 sentence_properties @
@@ -56,12 +52,12 @@ treecount(N,L1,P,Q,Count1), treecount(N,L2,P,Q,Count2) <=>
     |
     treecount(N,L2,P,Q,Count).
 
-inside_base_case @
+base_case @
 level(1), % Not strictly necessary
 word(Pos,Word), rule(NonTerm,[Word]) ==>
     treecount(NonTerm, 1, Pos, Pos,1).
 
-inside_recursion @
+recursion @
 level(L), rule(NonTermJ, [NonTermL,NonTermR]),
 treecount(NonTermL,L1,P,D,CountL),
 treecount(NonTermR,L2,D1,Q,CountR) ==>
@@ -73,11 +69,7 @@ treecount(NonTermR,L2,D1,Q,CountR) ==>
     treecount(NonTermJ, NextLevel, P, Q, Count).
 
 increase_tree_level @
-sentence_length(SL) \ level(L) <=>
-    L < SL,
-    M is L + 1
-    |
-    level(M).
+sentence_length(SL) \ level(L) <=> L < SL, M is L + 1 | level(M).
 
 infer_treecount_done @
 sentence_length(L), level(L) ==> treecount_done.
@@ -94,7 +86,7 @@ treecount_done,treecount(S,_,_,_,Count), root(S) <=>
 count :-
 	next_nonterm_number(0),
 	init_grammar,
-	sentence([astronomers, saw, stars, with, ears, with,ears, with,ears]),
+	sentence([astronomers, saw, stars, with, ears, with,ears,with,ears]),
 %	sentence([astronomers,saw,stars]),
 %	sentence([astronomers,with,ears,saw,stars]),
 	level(1).

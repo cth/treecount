@@ -5,6 +5,10 @@ To use it modify the grammar in grammar.pl to suit
 your needs and then consult treecount.pl from 
 SWI Prolog and invoke the main goal count/0.
 
+You are allowed to have only one unique start rule
+in the grammar. If you have multiple, you need to
+add one that rewrites to those.
+
 The grammar technically needs to be Chomsky normal
 form, but the program will rewrite your grammar to
 a weakly equivalent grammar in CNF is it is not.

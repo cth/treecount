@@ -1,0 +1,12 @@
+This is a small program that counts the number of
+parses for a sentence given an ambiguous grammar.
+
+To use it modify the grammar in grammar.pl to suit
+your needs and then consult treecount.pl from 
+SWI Prolog and invoke the main goal count/0.
+
+The grammar technically needs to be Chomsky normal
+form, but the program will rewrite your grammar to
+a weakly equivalent grammar in CNF is it is not.
+Don't worry, the number of parse trees will be 
+the same :-)

@@ -83,10 +83,13 @@ treecount_done,treecount(S,_,_,_,Count), root(S) <=>
 
 :- [grammar].% A small sample grammar
 
-count :-
+test_count :-
+	S = [astronomers, saw, stars, with, ears, with, ears, with, ears, with, ears, with, ears, with, ears, with, ears, with, ears, with, ears, with, ears, with, ears, with, ears, with, ears, with, ears, with, ears, with, ears],
+	count(S).
+
+count(S) :-
 	next_nonterm_number(0),
 	init_grammar,
-	sentence([astronomers, saw, stars, with, ears, with,ears,with,ears]),
-%	sentence([astronomers,saw,stars]),
-%	sentence([astronomers,with,ears,saw,stars]),
+	sentence(S),
 	level(1).
+

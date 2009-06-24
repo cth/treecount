@@ -6,7 +6,7 @@ init_grammar :-
     rule(s,[np,vp]),
     rule(pp,[p,np]),
     rule(vp,[v,np]),
-    rule(vp,[vp,pp,pp]),
+    rule(vp,[vp,pp]),
     rule(p,[with]),
     rule(v,[saw]),
     rule(np,[np,pp]),

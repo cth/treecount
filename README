@@ -3,7 +3,8 @@ parses for a sentence given an ambiguous grammar.
 
 To use it modify the grammar in grammar.pl to suit
 your needs and then consult treecount.pl from 
-SWI Prolog and invoke the main goal count/0.
+SWI Prolog and invoke the main goal count/1, with
+your sentence as argument.
 
 You are allowed to have only one unique start rule
 in the grammar. If you have multiple, you need to
